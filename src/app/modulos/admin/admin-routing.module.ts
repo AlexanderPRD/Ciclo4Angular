@@ -1,7 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateComponent } from './usuarios/create/create.component';
+import { EditComponent } from './usuarios/edit/edit.component';
+import { GetComponent } from './usuarios/get/get.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'create',
+    component: CreateComponent,
+  },{
+    path: 'edit',
+    component: EditComponent,
+  },{
+    path: 'get',
+    component: GetComponent,
+  },{
+    path: '',
+    redirectTo: 'get'
+  }
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
