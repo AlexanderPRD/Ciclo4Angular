@@ -34,10 +34,15 @@ export class CreateComponent implements OnInit {
 
   store(){
     let cliente = new ClienteModelo();
+    cliente.cedula = this.fgValidacion.controls["cedula"].value;
     cliente.nombre = this.fgValidacion.controls["nombre"].value;
     cliente.apellidos = this.fgValidacion.controls["apellidos"].value;
-    cliente.correo = this.fgValidacion.controls["correo"].value;
+    cliente.pais = this.fgValidacion.controls["pais"].value;
+    cliente.departamento = this.fgValidacion.controls["departamento"].value;
+    cliente.ciudad = this.fgValidacion.controls["ciudad"].value;
+    cliente.direccion = this.fgValidacion.controls["direccion"].value;
     cliente.telefono = this.fgValidacion.controls["telefono"].value;
+    cliente.correo = this.fgValidacion.controls["correo"].value;
  
     this.clienteService.store(cliente).subscribe((data: ClienteModelo)=> {
       Swal.fire('Creado correctamente!', '', 'success')

@@ -1,4 +1,4 @@
-export class EncomiendaModelo{
+export class ServicioModelo{
     id?: String;
     origen?: String;
     destino?: string;
