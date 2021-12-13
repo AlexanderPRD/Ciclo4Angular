@@ -5,6 +5,7 @@ import { EncomiendaRoutingModule } from './encomienda-routing.module';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { GetComponent } from './get/get.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { GetComponent } from './get/get.component';
     GetComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     EncomiendaRoutingModule
   ]
