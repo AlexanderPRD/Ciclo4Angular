@@ -9,6 +9,7 @@
          <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
         <li *ngIf="!activeSession"><a routerLink="/seguridad/login">Login</a></li>
         <li *ngIf="!activeSession"><a routerLink="/admin/create">Registrarme</a></li>
+        <li *ngIf="!activeSession"><a routerLink="/cliente/create">Registrarme</a></li>
       <li *ngIf="activeSession"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
 
       </ul>

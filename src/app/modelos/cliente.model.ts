@@ -4,8 +4,8 @@ export class ClienteModelo{
   nombre?: string;
   apellidos?: string;
   pais?: string;
-  departamento?: string;
   ciudad?: string;
+  departamento?: string;
   direccion?: string;
   telefono?: string;
   correo?: string;

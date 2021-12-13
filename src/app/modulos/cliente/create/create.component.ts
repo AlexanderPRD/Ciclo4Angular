@@ -17,16 +17,15 @@ export class CreateComponent implements OnInit {
     private router: Router) { }
 
     fgValidacion = this.fb.group({
-      id: ['', [Validators.required]],
       cedula: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       pais: ['', [Validators.required]],
-      departamento: ['', [Validators.required]],
       ciudad: ['', [Validators.required]],
+      departamento: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      telefono: [{value: '', disabled: true}, [Validators.required, Validators.minLength(6)]],
-      correo: [{value: '', disabled: true}, [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required]],
+      correo: ['', [Validators.required, Validators.email]],
     });
       
   ngOnInit(): void {
@@ -38,8 +37,8 @@ export class CreateComponent implements OnInit {
     cliente.nombre = this.fgValidacion.controls["nombre"].value;
     cliente.apellidos = this.fgValidacion.controls["apellidos"].value;
     cliente.pais = this.fgValidacion.controls["pais"].value;
-    cliente.departamento = this.fgValidacion.controls["departamento"].value;
     cliente.ciudad = this.fgValidacion.controls["ciudad"].value;
+    cliente.departamento = this.fgValidacion.controls["departamento"].value;
     cliente.direccion = this.fgValidacion.controls["direccion"].value;
     cliente.telefono = this.fgValidacion.controls["telefono"].value;
     cliente.correo = this.fgValidacion.controls["correo"].value;
