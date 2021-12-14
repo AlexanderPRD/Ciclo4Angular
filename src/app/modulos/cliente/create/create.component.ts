@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
       departamento: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
-      correo: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
     });
       
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class CreateComponent implements OnInit {
     cliente.departamento = this.fgValidacion.controls["departamento"].value;
     cliente.direccion = this.fgValidacion.controls["direccion"].value;
     cliente.telefono = this.fgValidacion.controls["telefono"].value;
-    cliente.correo = this.fgValidacion.controls["correo"].value;
+    cliente.email = this.fgValidacion.controls["email"].value;
  
     this.clienteService.store(cliente).subscribe((data: ClienteModelo)=> {
       Swal.fire('Creado correctamente!', '', 'success')

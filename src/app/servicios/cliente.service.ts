@@ -26,7 +26,7 @@ export class ClienteService {
         ciudad: cliente.ciudad,
         direccion: cliente.direccion,
         telefono: cliente.telefono,
-        correo: cliente.correo
+        email: cliente.email
       },{
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
@@ -54,7 +54,7 @@ export class ClienteService {
         ciudad: cliente.ciudad,
         direccion: cliente.direccion,
         telefono: cliente.telefono,
-        correo: cliente.correo
+        email: cliente.email
       }, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`

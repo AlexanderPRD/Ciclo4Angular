@@ -24,11 +24,11 @@ export class EditComponent implements OnInit {
       nombre: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       pais: ['', [Validators.required]],
-      departamento: ['', [Validators.required]],
       ciudad: ['', [Validators.required]],
+      departamento: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
       telefono: [{value: '', disabled: true}, [Validators.required, Validators.minLength(6)]],
-      correo: [{value: '', disabled: true}, [Validators.required, Validators.email]],
+      email: [{value: '', disabled: true}, [Validators.required, Validators.email]],
     });
  
     id: string=''
@@ -48,11 +48,11 @@ export class EditComponent implements OnInit {
       this.fgValidacion.controls["nombre"].setValue(data.nombre)
       this.fgValidacion.controls["apellidos"].setValue(data.apellidos)
       this.fgValidacion.controls["pais"].setValue(data.pais)
-      this.fgValidacion.controls["departamento"].setValue(data.departamento)
       this.fgValidacion.controls["ciudad"].setValue(data.ciudad)
+      this.fgValidacion.controls["departamento"].setValue(data.departamento)
       this.fgValidacion.controls["direccion"].setValue(data.direccion)
       this.fgValidacion.controls["telefono"].setValue(data.telefono)
-      this.fgValidacion.controls["correo"].setValue(data.correo)
+      this.fgValidacion.controls["email"].setValue(data.email)
     })
   }
 
@@ -63,15 +63,15 @@ export class EditComponent implements OnInit {
     cliente.nombre = this.fgValidacion.controls["nombre"].value;
     cliente.apellidos = this.fgValidacion.controls["apellidos"].value;
     cliente.pais = this.fgValidacion.controls["pais"].value;
-    cliente.departamento = this.fgValidacion.controls["departamento"].value;
     cliente.ciudad = this.fgValidacion.controls["ciudad"].value;
+    cliente.departamento = this.fgValidacion.controls["departamento"].value;
     cliente.direccion = this.fgValidacion.controls["direccion"].value;
     cliente.telefono = this.fgValidacion.controls["telefono"].value;
-    cliente.correo = this.fgValidacion.controls["correo"].value;
+    cliente.email = this.fgValidacion.controls["email"].value;
  
     this.clienteService.update(cliente).subscribe((data: ClienteModelo)=> {
       Swal.fire('Editado Correctamente!', '', 'success')
-      this.router.navigate(['/admin/get']);
+      this.router.navigate(['/cliente/get']);
     },
     (error: any) => {
       console.log(error)
