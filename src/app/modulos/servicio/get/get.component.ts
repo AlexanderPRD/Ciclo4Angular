@@ -30,7 +30,7 @@ export class GetComponent implements OnInit {
     Swal.fire({
       title: '¿Esta seguro de eliminar este registro?',
       showCancelButton: true,
-      confirmButtonText: 'Acpetar',
+      confirmButtonText: 'Aceptar',
     }).then((result) => {
       if (result.isConfirmed) {
         this.usuarioService.delete(id).subscribe((data: any) => {

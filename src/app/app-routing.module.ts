@@ -27,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./modulos/admin/admin.module').then(m => m.AdminModule)
   },
   {
-    path: 'encomiendas',
+    path: 'encomienda',
     loadChildren: () => import('./modulos/encomienda/encomienda.module').then(m => m.EncomiendaModule)
   },
   {

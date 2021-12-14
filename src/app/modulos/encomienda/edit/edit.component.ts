@@ -5,7 +5,6 @@ import { EncomiendaModelo } from 'src/app/modelos/encomienda.model';
 import { EncomiendaService } from 'src/app/servicios/encomienda.service';
 import Swal from 'sweetalert2'
 
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',

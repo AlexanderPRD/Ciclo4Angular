@@ -17,16 +17,23 @@ export class EncomiendaService {
     token: string = ''
 
     store(encomienda: EncomiendaModelo): Observable<EncomiendaModelo> {
-      return this.http.post<EncomiendaModelo>(`${this.url}/encomienda`, {
+      return this.http.post<EncomiendaModelo>(`${this.url}/encomiendas`, {
         descripcion: encomienda.descripcion,
         peso: encomienda.peso,
         tipo: encomienda.tipo,
         presentacion: encomienda.presentacion
+
+      },{
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
       });
-    }
+        
+        
+      }
 
     getAll(): Observable<EncomiendaModelo[]>{
-      return this.http.get<EncomiendaModelo[]>(`${this.url}/encomienda`, {
+      return this.http.get<EncomiendaModelo[]>(`${this.url}/encomiendas`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -34,7 +41,7 @@ export class EncomiendaService {
     }
 
     update(encomienda: EncomiendaModelo): Observable<EncomiendaModelo> {
-      return this.http.patch<EncomiendaModelo>(`${this.url}/encomienda/${encomienda.id}`, {
+      return this.http.patch<EncomiendaModelo>(`${this.url}/encomiendas/${encomienda.id}`, {
         descripcion: encomienda.descripcion,
         peso: encomienda.peso,
         tipo: encomienda.tipo,
@@ -47,7 +54,7 @@ export class EncomiendaService {
     }
 
     delete(id: string): Observable<EncomiendaModelo[]>{
-      return this.http.delete<EncomiendaModelo[]>(`${this.url}/encomienda/${id}`, {
+      return this.http.delete<EncomiendaModelo[]>(`${this.url}/encomiendas/${id}`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -55,7 +62,7 @@ export class EncomiendaService {
     }
 
     getWithId(id: string): Observable<EncomiendaModelo>{
-      return this.http.get<EncomiendaModelo>(`${this.url}/encomienda/${id}`,{
+      return this.http.get<EncomiendaModelo>(`${this.url}/encomiendas/${id}`,{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })

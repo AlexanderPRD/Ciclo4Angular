@@ -17,7 +17,7 @@ export class ClienteService {
     token: string = ''
 
     store(cliente: ClienteModelo): Observable<ClienteModelo> {
-      return this.http.post<ClienteModelo>(`${this.url}/cliente`, {
+      return this.http.post<ClienteModelo>(`${this.url}/clientes`, {
         cedula: cliente.cedula,
         nombre: cliente.nombre,
         apellidos: cliente.apellidos,
@@ -27,11 +27,17 @@ export class ClienteService {
         direccion: cliente.direccion,
         telefono: cliente.telefono,
         correo: cliente.correo
-      });
+      },{
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    });
+      
+      
     }
 
     getAll(): Observable<ClienteModelo[]>{
-      return this.http.get<ClienteModelo[]>(`${this.url}/cliente`, {
+      return this.http.get<ClienteModelo[]>(`${this.url}/clientes`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -39,7 +45,7 @@ export class ClienteService {
     }
 
     update(cliente: ClienteModelo): Observable<ClienteModelo> {
-      return this.http.patch<ClienteModelo>(`${this.url}/cliente/${cliente.id}`, {
+      return this.http.patch<ClienteModelo>(`${this.url}/clientes/${cliente.id}`, {
         cedula: cliente.cedula,
         nombre: cliente.nombre,
         apellidos: cliente.apellidos,
@@ -57,7 +63,7 @@ export class ClienteService {
     }
 
     delete(id: string): Observable<ClienteModelo[]>{
-      return this.http.delete<ClienteModelo[]>(`${this.url}/cliente/${id}`, {
+      return this.http.delete<ClienteModelo[]>(`${this.url}/clientes/${id}`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -65,7 +71,7 @@ export class ClienteService {
     }
 
     getWithId(id: string): Observable<ClienteModelo>{
-      return this.http.get<ClienteModelo>(`${this.url}/cliente/${id}`,{
+      return this.http.get<ClienteModelo>(`${this.url}/clientes/${id}`,{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })

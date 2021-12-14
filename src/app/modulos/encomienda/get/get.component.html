@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <a routerLink="/admin/create" class="btn">Registrar Encomienda</a>
+    <a routerLink="/encomienda/create" class="btn">Registrar Encomienda</a>
 
     <table class="table responsive">
       <thead>
@@ -16,7 +16,7 @@
       <tbody>
         <tr *ngFor="let p of listado">
           <td>{{p.descripcion}}</td>
-          <td>{{p.pesos}}</td>
+          <td>{{p.peso}}</td>
           <td>{{p.tipo}}</td>
           <td>{{p.presentacion}}</td>
           <td>

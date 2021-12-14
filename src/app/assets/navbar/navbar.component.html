@@ -3,13 +3,15 @@
       <a href="#" class="brand-logo">Mision Tic Equipo8</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li *ngIf="activeSession"><a routerLink="/admin/get">Usuarios</a></li>
-        <li *ngIf="activeSession"><a routerLink="/encomiendas/get">Encomiendas</a></li>
-        <li *ngIf="activeSession"><a routerLink="/Servicios/get">Servicios</a></li>
+        <li *ngIf="activeSession"><a routerLink="/encomienda/get">Encomiendas</a></li>
+        <li *ngIf="activeSession"><a routerLink="/servicio/get">Servicios</a></li>
         <li *ngIf="activeSession" ><a routerLink="/cliente/get">Clientes</a></li>
          <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
         <li *ngIf="!activeSession"><a routerLink="/seguridad/login">Login</a></li>
         <li *ngIf="!activeSession"><a routerLink="/admin/create">Registrarme</a></li>
         <li *ngIf="!activeSession"><a routerLink="/cliente/create">Registrarme</a></li>
+        <li *ngIf="!activeSession"><a routerLink="/encomienda/create">Registrarme</a></li>
+        <li *ngIf="!activeSession"><a routerLink="/servicio/create">Registrarme</a></li>
       <li *ngIf="activeSession"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
 
       </ul>

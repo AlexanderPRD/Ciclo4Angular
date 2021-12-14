@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioModelo } from 'src/app/modelos/servicio.model';
 import { ServicioService } from 'src/app/servicios/servicio.service';
-
 import Swal from 'sweetalert2'
 
 @Component({

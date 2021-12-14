@@ -1,8 +1,8 @@
 <div class="container">
     <h3 class="center-align">Editar Servicio</h3>
-    <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
+    <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="edit()">
+      <input formControlName="id" type="hidden" class="validate">
       <div class="row">
-
         <div class="input-field col s6">
           <input formControlName="origen" type="text" class="validate">
           <label for="origen">Origen</label>
@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input formControlName="fecha" type="date" class="validate">
+          <input formControlName="fecha" type="Date" class="validate">
           <label for="fecha">Fecha</label>
         </div>
       </div>
