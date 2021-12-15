@@ -3,14 +3,27 @@
     <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
       <div class="row">
 
-        <div class="input-field col s6">
+        <!-- <div class="input-field col s6">
           <input formControlName="origen" type="text" class="validate">
           <label for="origen">Origen</label>
+        </div> -->
+        <div class="input-field col s12">
+          <select class="browser-default" formControlName="origen" >
+            <option value="" disabled selected>Seleccione el cliente Origen</option>
+            <option *ngFor="let cliente of listadoCliente" value="{{cliente.nombre}} - {{cliente.apellidos}}">{{cliente.nombre}} - {{cliente.apellidos}}</option>
+          </select>
         </div>
-        <div class="input-field col s6">
+
+        <div class="input-field col s12">
+          <select class="browser-default" formControlName="destino" >
+            <option value="" disabled selected>Seleccione el cliente Destino</option>
+            <option *ngFor="let cliente of listadoCliente" value="{{cliente.nombre}} - {{cliente.apellidos}}">{{cliente.nombre}} - {{cliente.apellidos}}</option>
+          </select>
+        </div>
+        <!-- <div class="input-field col s6">
           <input formControlName="destino" type="text" class="validate">
           <label for="destino">Destino</label>
-        </div>
+        </div> -->
       </div>
       <div class="row">
         <div class="input-field col s12">
@@ -20,22 +33,32 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input formControlName="Hora" type="text" class="validate">
+          <input formControlName="hora" type="text" class="validate">
           <label for="hora">Hora</label>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="input-field col s12">
           <input formControlName="encomienda" type="text" class="validate">
           <label for="encomienda">Encomienda</label>
         </div>
+      </div> -->
+      <div class="input-field col s12">
+        <select class="browser-default" formControlName="encomienda" >
+          <option value="" disabled selected>Seleccione la Encomienda</option>
+          <option *ngFor="let encomienda of listadoEncomienda" value="{{encomienda.descripcion}} - {{encomienda.tipo}}">{{encomienda.descripcion}} - {{encomienda.tipo}}</option>
+        </select>
       </div>
+
+
       <div class="row">
         <div class="input-field col s12">
           <input formControlName="valor" type="text" class="validate">
           <label for="valor">Valor</label>
         </div>
       </div>
+
+      
 
       <div class="row center-align">
         <button [disabled]="!fgValidacion.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar

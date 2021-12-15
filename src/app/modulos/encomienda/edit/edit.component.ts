@@ -18,6 +18,7 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   fgValidacion = this.fb.group({
+    id: ['', [Validators.required]],
         descripcion: ['', [Validators.required]],
         peso: ['', [Validators.required]],
         tipo: ['', [Validators.required]],
@@ -29,6 +30,7 @@ export class EditComponent implements OnInit {
       ngOnInit(): void {
         //capturar id de la url
         this.id = this.route.snapshot.params["id"]
+        console.log(this.id)
         //ejecuto la funcion para buscar el registro
         this.buscarRegistro(this.id);
   }

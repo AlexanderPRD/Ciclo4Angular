@@ -13,11 +13,11 @@ export class ServicioService {
     private seguridadService: SeguridadService) {
       this.token = this.seguridadService.getToken(); }
 
-      url = "http://localhost:3000"
+      url = "https://apiloopback.herokuapp.com"
     token: string = ''
 
     store(servicio: ServicioModelo): Observable<ServicioModelo> {
-      return this.http.post<ServicioModelo>(`${this.url}/servicio`, {
+      return this.http.post<ServicioModelo>(`${this.url}/servicios`, {
 
           origen:servicio.origen,
           destino:servicio.destino,
@@ -26,11 +26,15 @@ export class ServicioService {
           encomienda:servicio.encomienda,
           valor:servicio.valor
 
-      });
-    }
-
+        },{
+          headers: new HttpHeaders({
+            "Authorization": `Bearer ${this.token}`
+          })
+        });
+          
+        }
     getAll(): Observable<ServicioModelo[]>{
-      return this.http.get<ServicioModelo[]>(`${this.url}/servicio`, {
+      return this.http.get<ServicioModelo[]>(`${this.url}/servicios`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -38,7 +42,7 @@ export class ServicioService {
     }
 
     update(servicio: ServicioModelo): Observable<ServicioModelo> {
-      return this.http.patch<ServicioModelo>(`${this.url}/servicio/${servicio.id}`, {
+      return this.http.patch<ServicioModelo>(`${this.url}/servicios/${servicio.id}`, {
           origen:servicio.origen,
           destino:servicio.destino,
           fecha:servicio.fecha,
@@ -53,7 +57,7 @@ export class ServicioService {
     }
 
     delete(id: string): Observable<ServicioModelo[]>{
-      return this.http.delete<ServicioModelo[]>(`${this.url}/servicio/${id}`, {
+      return this.http.delete<ServicioModelo[]>(`${this.url}/servicios/${id}`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -61,7 +65,7 @@ export class ServicioService {
     }
 
     getWithId(id: string): Observable<ServicioModelo>{
-      return this.http.get<ServicioModelo>(`${this.url}/servicio/${id}`,{
+      return this.http.get<ServicioModelo>(`${this.url}/servicios/${id}`,{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
